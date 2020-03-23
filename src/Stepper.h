@@ -86,10 +86,10 @@ void Stepper::clearStepPin() const
 void Stepper::setDir(int d)
 {
     dir = d;
-    if(d)
-      doPin(stepPin, 1);
+    if(d==1)
+      doPin(dirPin, 1);
     else
-      doPin(stepPin, 0);
+      doPin(dirPin, 0);
       
     //dir == 1 ? *dirPinCwReg = 1 : *dirPinCcwReg = 1;
 }
