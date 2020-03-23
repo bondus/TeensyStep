@@ -19,8 +19,10 @@
 
 // TEENSY 4 ================================================================================================
 
-#elif defined(__IMXRT1052__)
-#include "timer/teensy4/TimerField.h"
+#elif defined(__IMXRT1062__)
+//#include "timer/teensy4/TimerField.h"
+
+#include "timer/chibios/TimerField.h"
 
 //STM32 ====================================================================================================
 

@@ -67,20 +67,31 @@ class Stepper
 
 // Inline implementation -----------------------------------------
 
+extern "C" {
+  void doPin(int pin, int state);
+}
+
 void Stepper::doStep()
 {
-    *stepPinActiveReg = 1;
+    //*stepPinActiveReg = 1;
+    doPin(stepPin, 1);
     current += dir;
 }
 void Stepper::clearStepPin() const
 {
-    *stepPinInactiveReg = 1;
+    doPin(stepPin, 0);
+    //*stepPinInactiveReg = 1;
 }
 
 void Stepper::setDir(int d)
 {
     dir = d;
-    dir == 1 ? *dirPinCwReg = 1 : *dirPinCcwReg = 1;
+    if(d)
+      doPin(stepPin, 1);
+    else
+      doPin(stepPin, 0);
+      
+    //dir == 1 ? *dirPinCwReg = 1 : *dirPinCcwReg = 1;
 }
 
 void Stepper::toggleDir()

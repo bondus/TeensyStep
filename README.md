@@ -1,5 +1,7 @@
 # TeensyStep V2 - Fast Stepper Library for PJRC Teensy boards
 
+Hacked to work on Teensy 4 using ChibiOS timers (https://github.com/greiman/ChRt). The code in in Stepper.h that moves the DIR/STEP pins did not work on Teensy 4 and have been replaced with an exceptionally hacky call to a function "void doPin(int pin, int state)", you have to implement that.
+
 Please note: This is version 2 of the library. This version has a new user interface. The version 1 is still available in the branch [Version-1](https://github.com/luni64/TeensyStep/tree/Version-1).
 
 
